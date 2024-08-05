@@ -41,11 +41,12 @@ contract BaseTest{
         uint256 amount = accounts[msg.sender];
         
         require(amount>=_amount);
-        (bool action,uint256 result) = amount.trySub(_amount);
+        
+        (bool action,uint256 abc) = amount.trySub(_amount);
         
         require(action);
 
-        accounts[msg.sender] = result;
+        accounts[msg.sender] = abc;
 
         return true;
     }
